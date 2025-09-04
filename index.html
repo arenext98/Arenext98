@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>न्यूज़ टुडे - ताज़ा समाचार, खेल, बाजार, मनोरंजन</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #ff4757;
+            --secondary: #1e90ff;
+            --sports: #2ed573;
+            --business: #ffa502;
+            --entertainment: #cd84f1;
+            --tech: #17c0eb;
+            --dark: #2f3542;
+            --light: #f8f9fa;
+        }
+
+        body {
+            background: #f1f2f6;
+            color: #2f3542;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        .top-bar {
+            background: var(--dark);
+            color: white;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .date-time {
+            display: flex;
+            gap: 20px;
+        }
+
+        .breaking-news {
+            display: flex;
+            align-items: center;
+            background: var(--primary);
+            padding: 5px 15px;
+            border-radius: 3px;
+            animation: blink 2s infinite;
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.8; }
+            100% { opacity: 1; }
+        }
+
+        /* Main Header */
+        .main-header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 15px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--dark);
+        }
+
+        /* Navigation */
+        .main-nav {
+            background: var(--dark);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+        }
+
+        .nav-menu li {
+            position: relative;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            display: block;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            background: var(--primary);
+        }
+
+        /* Category Colors */
+        .nav-news a { background: var(--primary); }
+        .nav-sports a { background: var(--sports); }
+        .nav-business a { background: var(--business); }
+        .nav-entertainment a { background: var(--entertainment); }
+        .nav-tech a { background: var(--tech); }
+
+        /* Main Content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+            margin: 25px 0;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff6b6b, #ff4757);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+
+        .hero-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 25px;
+        }
+
+        .hero-title {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .hero-title a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 14px;
+        }
+
+        /* Category Sections */
+        .category-section {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light);
+        }
+
+        .section-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .view-all {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* News Grid */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .news-card {
+            background: var(--light);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .news-image {
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+
+        .news-content {
+            padding: 15px;
+        }
+
+        .news-category {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .news-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .news-title a {
+            color: var(--dark);
+            text-decoration: none;
+        }
+
+        .news-summary {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .news-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #888;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .widget {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .widget-header {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light);
+            color: var(--dark);
+        }
+
+        /* Trending News */
+        .trending-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .trending-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .trending-number {
+            background: var(--primary);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .trending-content h4 {
+            font-size: 15px;
+            margin-bottom: 5px;
+            line-height: 1.4;
+        }
+
+        .trending-content h4 a {
+            color: var(--dark);
+            text-decoration: none;
+        }
+
+        .trending-time {
+            font-size: 12px;
+            color: #888;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .footer-section h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 20px;
+            border-top: 1px solid #3d4452;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-menu {
+                flex-wrap: wrap;
+            }
+            
+            .hero-section {
+                height: 300px;
+            }
+            
+            .hero-title {
+                font-size: 22px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="date-time">
+                    <span id="current-date">शुक्रवार, 15 दिसंबर 2023</span>
+                    <span id="current-time">12:00:00 PM</span>
+                </div>
+                <div class="breaking-news">
+                    <span>🔥 ब्रेकिंग: भारत में नई शिक्षा नीति लागू, जानें क्या बदलेगा</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">न्यूज़<span>टुडे</span></a>
+                <div class="header-actions">
+                    <button style="background:var(--primary); color:white; border:none; padding:10px 15px; border-radius:5px; cursor:pointer;">📧 Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="container">
+            <ul class="nav-menu">
+                <li class="nav-news"><a href="#news">समाचार</a></li>
+                <li class="nav-sports"><a href="#sports">खेल</a></li>
+                <li class="nav-business"><a href="#business">बाजार</a></li>
+                <li class="nav-entertainment"><a href="#entertainment">मनोरंजन</a></li>
+                <li class="nav-tech"><a href="#tech">तकनीक</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="main-content">
+            <!-- Left Content -->
+            <div class="content-left">
+                <!-- Hero Section -->
+                <section class="hero-section">
+                    <div class="hero-image">📰</div>
+                    <div class="hero-content">
+                        <h2 class="hero-title"><a href="#">प्रधानमंत्री मोदी ने की बड़ी घोषणा: नई शिक्षा नीति में आएंगे ये बदलाव</a></h2>
+                        <div class="hero-meta">
+                            <span>राजनीति</span>
+                            <span>• 2 घंटे पहले</span>
+                            <span>• न्यूज़ टुडे</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- News Section -->
+                <section id="news" class="category-section">
+                    <div class="section-header">
+                        <h2 class="section-title">📰 ताज़ा समाचार</h2>
+                        <a href="#" class="view-all">सभी देखें</a>
+                    </div>
+                    <div class="news-grid">
+                        <article class="news-card">
+                            <div class="news-image" style="background:linear-gradient(45deg, #ff4757, #ff6b6b);">🏛️</div>
+                            <div class="news-content">
+                                <span class="news-category" style="background:var(--primary);">राजनीति</span>
+                                <h3 class="news-title"><a href="#">संसद के शीतकालीन सत्र में पास होंगे ये महत्वपूर्ण बिल</a></h3>
+                                <p class="news-summary">संसद के आगामी शीतकालीन सत्र में कई महत्वपूर्ण विधेयक पेश किए जाने की तैयारी है...</p>
+                                <div class="news-meta">
+                                    <span>1 घंटे पहले</span>
+                                    <span>👀 2.5k</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="news-card">
+                            <div class="news-image" style="background:linear-gradient(45deg, #1e90ff, #70a1ff);">🌍</div>
+                            <div class="news-content">
+                                <span class="news-category" style="background:var(--secondary);">अंतर्राष्ट्रीय</span>
+                                <h3 class="news-title"><a href="#">चीन और अमेरिका के बीच व्यापार समझौता, बाजारों में उछाल</a></h3>
+                                <p class="news-summary">चीन और अमेरिका के बीच नए व्यापार समझौते से वैश्विक बाजारों में तेजी देखने को मिल रही है...</p>
+                                <div class="news-meta">
+                                    <span>3 घंटे पहले</span>
+                                    <span>👀 1.8k</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- Sports Section -->
+                <section id="sports" class="category-section">
+                    <div class="section-header">
+                        <h2 class="section-title">⚽ खेल समाचार</h2>
+                        <a href="#" class="view-all">सभी देखें</a>
+                    </div>
+                    <div class="news-grid">
+                        <article class="news-card">
+                            <div class="news-image" style="background:linear-gradient(45deg, #2ed573, #7bed9f);">🏏</div>
+                            <div class="news-content">
+                                <span class="news-category" style="background:var(--sports);">क्रिकेट</span>
+                                <h3 class="news-title"><a href="#">विराट कोहली ने T20 वर्ल्ड कप के लिए की तैयारी शुरू</a></h3>
+                                <p class="news-summary">भारतीय क्रिकेट टीम के पूर्व कप्तान विराट कोहली ने अगले साल होने वाले T20 वर्ल्ड कप की तैयारी शुरू कर दी है...</p>
+                                <div class="news-meta">
+                                    <span>5 घंटे पहले</span>
+                                    <span>👀 3.2k</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="news-card">
+                            <div class="news-image" style="background:linear-gradient(45deg, #ff9f1a, #ffaf40);">🥊</div>
+                            <div class="news-content">
+                                <span class="news-category" style="background:var(--business);">बॉक्सिंग</span>
+                                <h3 class="news-title"><a href="#">मैरी कॉम ने जीता गोल्ड मेडल, देश के लिए किया गौरवान्वित</a></h3>
+                                <p class="news-summary">महान बॉक्सर एम.सी. मैरी कॉम ने अंतर्राष्ट्रीय टूर्नामेंट में स्वर्ण पदक जीतकर देश का नाम रोशन किया है...</p>
+                                <div class="news-meta">
+                                    <span>7 घंटे पहले</span>
+                                    <span>👀 2.1k</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- Business Section -->
+                <section id="business" class="category-section">
+                    <div class="section-header">
+                        <h2 class="section-title">💼 बाजार समाचार</h2>
+                        <a href="#" class="view-all">सभी देखें</a>
+                    </div>
+                    <div class="news-grid">
+                        <article class="news-card">
+                            <div class="news-image" style="background:linear-gradient(45deg, #ffa502, #ffb142);">📈</div>
+                            <div class="news-content">
+                                <span class="news-category" style="background:var(--business);">शेयर बाजार</span>
+                                <h3 class="news-title"><a href="#">शेयर बाजार में तेजी, सेंसेक्स 1000 अंकों से अधिक उछला</a></h3>
+                                <p class="news-summary">वैश्विक बाजारों में सुधार और घरेलू अर्थव्यवस्था में सकारात्मक संकेतों के बीच शेयर बाजार में जोरदार तेजी देखने को मिली...</p>
+                                <div class="news-meta">
+                                    <span>4 घंटे पहले</span>
+                                    <span>👀 1.5k</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="news-card">
+                            <div class="news-image" style="background:linear-gradient(45deg, #2f3542, #57606f);">💰</div>
+                            <div class="news-content">
+                                <span class="news-category" style="background:var(--dark);">अर्थव्यवस्था</span>
+                                <h3 class="news-title"><a href="#">RBI ने रेपो रेट में किया बदलाव, जानें क्या होगा असर</a></h3>
+                                <p class="news-summary">भारतीय रिजर्व बैंक (RBI) ने मौद्रिक नीति समीक्षा में रेपो रेट में बदलाव किया है। इसका ऋण और जमादातियों पर क्या असर होगा...</p>
+                                <div class="news-meta">
+                                    <span>6 घंटे पहले</span>
+                                    <span>👀 2.3k</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Trending News Widget -->
+                <div class="widget">
+                    <h3 class="widget-header">🔥 ट्रेंडिंग समाचार</h3>
+                    <div class="trending-list">
+                        <div class="trending-item">
+                            <div class="trending-number">1</div>
+                            <div class="trending-content">
+                                <h4><a href="#">दिल्ली में बढ़ता प्रदूषण, सरकार ने जारी किए नए दिशा-निर्देश</a></h4>
+                                <div class="trending-time">45 म
