@@ -1,41 +1,54 @@
 ---
 layout: default
+title: Home
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ site.title }} - Latest News</title>
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-</head>
-<body>
-    <header>
-        <h1>{{ site.title }}</h1>
-        <p class="tagline">{{ site.description }}</p>
-    </header>
+<main class="content-area">
+    {% assign hero_post = site.posts | sort: "date" | last %}
+    {% if hero_post %}
+    <section class="hero-section">
+        <div class="hero-image">
+            {% if hero_post.image %}
+            <img src="{{ hero_post.image | relative_url }}" alt="{{ hero_post.title }}">
+            {% else %}
+            📺
+            {% endif %}
+        </div>
+        <div class="hero-overlay">
+            <div class="hero-title">
+                <a href="{{ hero_post.url | relative_url }}">{{ hero_post.title }}</a>
+            </div>
+            <div class="hero-meta">
+                <span class="news-category">ताज़ा खबर</span> • 
+                {{ hero_post.date | date: "%d %B, %Y" }}
+            </div>
+        </div>
+    </section>
+    {% endif %}
 
-    <main>
-        <section class="latest-news">
-            <h2>ताज़ा ख़बरें</h2>
-            <ul class="news-list">
-                {% for post in site.posts reversed %} {# 'reversed' to show latest news first #}
-                <li class="news-item">
-                    <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-                    <p class="news-meta">
-                        <span class="author">By {{ post.author }}</span> |
-                        <span class="date">{{ post.date | date: "%d %B, %Y" }}</span>
-                    </p>
-                    <p>{{ post.excerpt | strip_html | truncatewords: 30 }} <a href="{{ post.url | relative_url }}">आगे पढ़ें...</a></p>
-                </li>
-                {% endfor %}
-            </ul>
-        </section>
-    </main>
-
-    <footer>
-        <p>Hosted on GitHub Pages - Theme by <a href="https://github.com/arenext98" target="_blank">{{ site.author }}</a></p>
-    </footer>
-</body>
-</html>
+    <div class="news-grid" id="news-container">
+        {% for post in site.posts reversed %}
+        <article class="news-card news-card-large">
+            <div class="news-image">
+                {% if post.image %}
+                <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+                {% else %}
+                📰
+                {% endif %}
+            </div>
+            <div class="news-content">
+                <h2 class="news-title">
+                    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                </h2>
+                <p class="news-summary">
+                    {{ post.excerpt | strip_html | truncatewords: 40 }}
+                </p>
+                <div class="news-meta">
+                    <span class="news-time">{{ post.date | date: "%d %B, %Y" }}</span>
+                    <span>By {{ post.author }}</span>
+                </div>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+</main>
