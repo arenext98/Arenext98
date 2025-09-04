@@ -1,0 +1,596 @@
+09.04 10:42 AM
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>न्यूज़ टुडे - ताज़ी खबरें, राजनीति, मनोरंजन और खेल | Hindi News</title>
+    <meta name="description" content="भारत की सबसे तेज़ खबरें, राजनीति, मनोरंजन, खेल और व्यापार की latest news पढ़ें न्यूज़ टुडे पर। हिंदी में ताज़ा समाचार।">
+    <meta name="keywords" content="hindi news, भारत समाचार, ताज़ी खबरें, राजनीति, मनोरंजन, खेल, व्यापार">
+    <meta name="author" content="News Today Hindi">
+    
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="न्यूज़ टुडे - भारत की #1 हिंदी न्यूज़ वेबसाइट">
+    <meta property="og:description" content="ताज़ी खबरें, राजनीति, मनोरंजन, खेल की latest updates पढ़ें">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://arenext98.github.io">
+    <meta property="og:image" content="https://arenext98.github.io/og-image.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="न्यूज़ टुडे - Hindi News">
+    <meta name="twitter:description" content="भारत की सबसे तेज़ खबरें पढ़ें">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        /* Header */
+        .top-header {
+            background: #1e3d59;
+            color: white;
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        .top-header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem;
+        }
+
+        .breaking-news {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .breaking-tag {
+            background: #ff4757;
+            padding: 0.2rem 0.8rem;
+            border-radius: 3px;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+
+        .date-time {
+            font-size: 0.85rem;
+        }
+
+        .main-header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff4757, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            background: #ff4757;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Ad Space */
+        .ad-space {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: 2px dashed #fff;
+            padding: 2rem;
+            text-align: center;
+            margin: 1rem 0;
+            color: white;
+            border-radius: 10px;
+        }
+
+        .ad-space h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Main Content */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            padding: 2rem 1rem;
+        }
+
+        .content-area {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff4757, #ff6b6b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 2rem;
+        }
+
+        .hero-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-title a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .hero-meta {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* News Categories */
+        .category-tabs {
+            display: flex;
+            background: white;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .category-tab {
+            flex: 1;
+            padding: 1rem;
+            text-align: center;
+            background: #f8f9fa;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-weight: 600;
+        }
+
+        .category-tab.active {
+            background: #ff4757;
+            color: white;
+        }
+
+        .category-tab:hover {
+            background: #ff6b6b;
+            color: white;
+        }
+
+        /* News Grid */
+        .news-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .news-card-large {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .news-image {
+            height: 200px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .news-content {
+            padding: 1.5rem;
+        }
+
+        .news-category {
+            background: #ff4757;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 0.8rem;
+        }
+
+        .news-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.8rem;
+            color: #333;
+            line-height: 1.4;
+        }
+
+        .news-title a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .news-title a:hover {
+            color: #ff4757;
+        }
+
+        .news-summary {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .news-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        .news-time {
+            font-weight: 600;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .sidebar-section {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .sidebar-header {
+            background: #1e3d59;
+            color: white;
+            padding: 1rem;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .sidebar-content {
+            padding: 1rem;
+        }
+
+        .trending-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .trending-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .trending-number {
+            background: #ff4757;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .trending-content h4 {
+            font-size: 0.95rem;
+            margin-bottom: 0.3rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .trending-content h4:hover {
+            color: #ff4757;
+        }
+
+        .trending-time {
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        /* Weather Widget */
+        .weather-widget {
+            text-align: center;
+        }
+
+        .weather-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .weather-temp {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ff4757;
+        }
+
+        .weather-desc {
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1e3d59;
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            padding: 0 1rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #ff4757;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #ff6b6b;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 1rem;
+            border-top: 1px solid #2c5f7e;
+            margin-top: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-container {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .news-card-large {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .category-tabs {
+                flex-wrap: wrap;
+            }
+
+            .hero-title {
+                font-size: 1.5rem;
+            }
+
+            .logo {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Header -->
+    <div class="top-header">
+        <div class="top-header-content">
+            <div class="breaking-news">
+                <span class="breaking-tag"> BREAKING</span>
+                <span id="breaking-text">भारत में नई टेक्नोलॉजी पॉलिसी की घोषणा, जानें क्या होगा फायदा</span>
+            </div>
+            <div class="date-time">
+                <span id="current-date"></span> | <span id="current-time"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="header-content">
+            <a href="#" class="logo">न्यूज़ टुडे</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#home">होम</a></li>
+                    <li><a href="#politics">राजनीति</a></li>
+                    <li><a href="#entertainment">मनोरंजन</a></li>
+                    <li><a href="#sports">खेल</a></li>
+                    <li><a href="#business">व्यापार</a></li>
+                    <li><a href="#tech">टेक्नोलॉजी</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Ad Space - Header -->
+    <div class="ad-space">
+        <h3> Advertisement Space (728x90)</h3>
+        <p>यहाँ Google AdSense या अन्य ad network का banner ad आएगा</p>
+        <small>जल्दी ही आपके ads यहाँ दिखेंगे!</small>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Content Area -->
+        <main class="content-area">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="hero-image"></div>
+                <div class="hero-overlay">
+                    <div class="hero-title">
+                        <a href="#">प्रधानमंत्री मोदी ने की बड़ी घोषणा: नई शिक्षा नीति में आएंगे ये बदलाव</a>
+                    </div>
+                    <div class="hero-meta">राजनीति • 2 घंटे पहले • न्यूज़ टुडे रिपोर्टर</div>
+                </div>
+            </section>
+
+            <!-- Category Tabs -->
+            <div class="category-tabs">
+                <button class="category-tab active" onclick="showCategory('all')">सभी समाचार</button>
+                <button class="category-tab" onclick="showCategory('politics')">राजनीति</button>
+                <button class="category-tab" onclick="showCategory('entertainment')">मनोरंजन</button>
+                <button class="category-tab" onclick="showCategory('sports')">खेल</button>
+                <button class="category-tab" onclick="showCategory('business')">व्यापार</button>
+            </div>
+
+            <!-- Ad Space - Content -->
+            <div class="ad-space">
+                <h3> Advertisement Space (728x250)</h3>
+                <p>यहाँ content के बीच में ad आएगा - High CTR position!</p>
+            </div>
+
+            <!-- News Grid -->
+            <div class="news-grid" id="news-container">
+                <!-- News Card 1 -->
+                <article class="news-card news-card-large">
+                    <div class="news-image">️</div>
+                    <div class="news-content">
+                        <span class="news-category">राजनीति</span>
+                        <h2 class="news-title">
+                            <a href="#">संसद के शीतकालीन सत्र में पास होंगे ये महत्वपूर्ण बिल, जानें क्या है खास</a>
+                        </h2>
+                        <p class="news-summary">संसद के आगामी शीतकालीन सत्र में कई महत्वपूर्ण विधेयक पेश किए जाने की तैयारी है। इनमें से कुछ बिल्स का सीधा असर आम जनता पर पड़ सकता है...</p>
+                        <div class="news-meta">
+                            <span class="news-time">1 घंटे पहले</span>
+                            <span> 2.5k views</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- News Card 2 -->
+                <article class="news-card news-card-large">
+                    <div class="news-image"></div>
+                    <div class="news-content">
+                        <span class="news-category">मनोरंजन</span>
+                        <h2 class="news-title">
+                            <a href="#">शाहरुख खान की नई फिल्म की रिलीज डेट का ऐलान, फैंस में भारी उत्साह</a>
+                        </h2>
+                        <p class="news-summary">बॉलीवुड के बादशाह शाहरुख खान की आगामी फिल्म 'दुनिया' की रिलीज डेट का ऐलान हो गया है। फिल्म अगले साल दिवाली पर रिलीज होगी...</p>
+                        <div class="news-meta">
+                            <span class="news-time">3 घंटे पहले</span>
+                            <span> 5.2k views</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- News Card 3 -->
+                <article class="news-card news-card-large">
+                    <div class="news-image"></div>
+                    <div class="news-content">
+                        <span class="news-category">खेल</span>
+                        <h2 class="news-title">
+                            <a href="#">विराट कोहली ने T20 वर्ल्ड कप के लिए की तैयारी शुरू, जानें क्या है प्लान<
