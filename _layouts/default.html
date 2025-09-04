@@ -8,16 +8,6 @@
     <meta name="keywords" content="{{ site.keywords }}">
     <meta name="author" content="{{ site.author }}">
 
-    <meta property="og:title" content="{{ page.title }} | {{ site.title }}">
-    <meta property="og:description" content="{{ site.description }}">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ page.url | absolute_url }}">
-    <meta property="og:image" content="{{ '/assets/images/og-image.jpg' | absolute_url }}">
-    
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ page.title }} | {{ site.title }}">
-    <meta name="twitter:description" content="{{ site.description }}">
-
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
 <body>
@@ -39,11 +29,11 @@
             <nav>
                 <ul class="nav-menu">
                     <li><a href="{{ '/' | relative_url }}">होम</a></li>
-                    <li><a href="{{ '/rajniti' | relative_url }}">राजनीति</a></li>
-                    <li><a href="{{ '/manoranjan' | relative_url }}">मनोरंजन</a></li>
-                    <li><a href="{{ '/khel' | relative_url }}">खेल</a></li>
-                    <li><a href="#vyapar">व्यापार</a></li>
-                    <li><a href="#tech">टेक्नोलॉजी</a></li>
+                    <li><a href="#">राजनीति</a></li>
+                    <li><a href="#">मनोरंजन</a></li>
+                    <li><a href="#">खेल</a></li>
+                    <li><a href="#">व्यापार</a></li>
+                    <li><a href="#">टेक्नोलॉजी</a></li>
                 </ul>
             </nav>
         </div>
@@ -57,11 +47,6 @@
 
     <div class="main-container">
         {{ content }}
-    </div>
-
-    <div class="ad-space">
-        <h3>🎯 Advertisement Space (728x250)</h3>
-        <p>यहाँ content के बीच में ad आएगा - High CTR position!</p>
     </div>
 
     <aside class="sidebar">
@@ -87,20 +72,6 @@
                     <div class="trending-content">
                         <h4>महंगाई पर लगाम लगाने के लिए RBI ने उठाए महत्वपूर्ण कदम</h4>
                         <div class="trending-time">3 घंटे पहले</div>
-                    </div>
-                </div>
-                <div class="trending-item">
-                    <div class="trending-number">4</div>
-                    <div class="trending-content">
-                        <h4>क्रिकेट वर्ल्ड कप के लिए टीम इंडिया की घोषणा</h4>
-                        <div class="trending-time">5 घंटे पहले</div>
-                    </div>
-                </div>
-                <div class="trending-item">
-                    <div class="trending-number">5</div>
-                    <div class="trending-content">
-                        <h4>गगनयान मिशन के लिए इसरो ने की नई तैयारी</h4>
-                        <div class="trending-time">7 घंटे पहले</div>
                     </div>
                 </div>
             </div>
@@ -152,4 +123,5 @@
         setInterval(updateDateTime, 1000);
     </script>
 </body>
-</html>
+                </html>
+                
