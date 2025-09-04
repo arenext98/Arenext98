@@ -94,12 +94,6 @@
         </div>
     </aside>
 
-    <script>
-        // Dummy script for date and time - Jekyll doesn't support real-time JS
-        document.getElementById('current-date').textContent = '{{ site.time | date: "%d %B, %Y" }}';
-        document.getElementById('current-time').textContent = '{{ site.time | date: "%I:%M %p" }}';
-    </script>
-
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
@@ -129,6 +123,21 @@
             <p>&copy; 2025 न्यूज़ टुडे. सभी अधिकार सुरक्षित हैं।</p>
         </div>
     </footer>
+
+    <script>
+        function updateDateTime() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const dateString = now.toLocaleDateString('hi-IN', options);
+            const timeString = now.toLocaleTimeString('hi-IN', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            
+            document.getElementById('current-date').textContent = dateString;
+            document.getElementById('current-time').textContent = timeString;
+        }
+
+        // Update date and time immediately and then every second
+        updateDateTime();
+        setInterval(updateDateTime, 1000);
+    </script>
 </body>
-  </html>
-  
+</html>
