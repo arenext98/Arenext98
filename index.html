@@ -3,22 +3,39 @@ layout: default
 ---
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>{{ site.title }}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ site.title }} - Latest News</title>
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
 <body>
-    <h1>{{ site.title }}</h1>
-    <h2>Latest News</h2>
-    <ul>
-        {% for post in site.posts %}
-        <li>
-            <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-            <p>{{ post.date | date_to_string }}</p>
-        </li>
-        {% endfor %}
-    </ul>
+    <header>
+        <h1>{{ site.title }}</h1>
+        <p class="tagline">{{ site.description }}</p>
+    </header>
+
+    <main>
+        <section class="latest-news">
+            <h2>ताज़ा ख़बरें</h2>
+            <ul class="news-list">
+                {% for post in site.posts reversed %} {# 'reversed' to show latest news first #}
+                <li class="news-item">
+                    <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+                    <p class="news-meta">
+                        <span class="author">By {{ post.author }}</span> |
+                        <span class="date">{{ post.date | date: "%d %B, %Y" }}</span>
+                    </p>
+                    <p>{{ post.excerpt | strip_html | truncatewords: 30 }} <a href="{{ post.url | relative_url }}">आगे पढ़ें...</a></p>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>Hosted on GitHub Pages - Theme by <a href="https://github.com/arenext98" target="_blank">{{ site.author }}</a></p>
+    </footer>
 </body>
 </html>
-
