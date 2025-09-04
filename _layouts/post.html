@@ -3,18 +3,37 @@ layout: default
 ---
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>{{ page.title }}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} - {{ site.title }}</title>
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
 <body>
-    <a href="{{ '/' | relative_url }}">Back to Home</a>
-    <h1>{{ page.title }}</h1>
-    <p>By {{ page.author }} on {{ page.date | date_to_string }}</p>
-    <div>
-        {{ content }}
-    </div>
+    <header>
+        <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+        <p class="tagline">हर खबर पर हमारी नज़र</p>
+    </header>
+
+    <main class="post-page">
+        <article class="post-content">
+            <h1 class="post-title">{{ page.title }}</h1>
+            <p class="post-meta">
+                <span class="author">By {{ page.author }}</span> |
+                <span class="date">{{ page.date | date: "%d %B, %Y" }}</span>
+            </p>
+            <div class="article-body">
+                {{ content }}
+            </div>
+        </article>
+        <div class="back-link">
+            <a href="{{ '/' | relative_url }}">← सभी ख़बरें देखें</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>Hosted on GitHub Pages - Theme by <a href="https://github.com/arenext98" target="_blank">{{ site.author }}</a></p>
+    </footer>
 </body>
 </html>
-
