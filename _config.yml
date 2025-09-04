@@ -1,5 +1,6 @@
 title: न्यूज़ टुडे
-description: भारत की सबसे तेज़ खबरें, राजनीति, मनोरंजन, खेल और व्यापार की latest news पढ़ें न्यूज़ टुडे पर। हिंदी में ताज़ा समाचार।
-author: News Today Hindi
-lang: hi
-keywords: hindi news, भारत समाचार, ताज़ी खबरें, राजनीति, मनोरंजन, खेल, व्यापार
+description: भारत की ताज़ा और ब्रेकिंग खबरें
+author: आपकी टीम
+keywords: न्यूज़, समाचार, खबरें, भारत, ब्रेकिंग
+timezone: Asia/Kolkata
+permalink: /:title/
