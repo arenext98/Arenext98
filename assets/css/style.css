@@ -1,21 +1,77 @@
 body {
-    font-family: sans-serif;
-    line-height: 1.6;
-    margin: 2em;
-    background-color: #f4f4f4;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.8;
+    background-color: #f0f2f5;
     color: #333;
+    margin: 0;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #0a4f9a;
+    margin-bottom: 0.5em;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.8em;
+    color: #555;
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+    max-width: 800px;
+}
+
+li {
+    background-color: #fff;
+    margin-bottom: 1em;
+    padding: 1.5em;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+li:hover {
+    transform: translateY(-5px);
 }
 
 a {
-    color: #0077cc;
+    color: #0a4f9a;
     text-decoration: none;
+    font-weight: 600;
 }
 
 a:hover {
     text-decoration: underline;
 }
 
-h1, h2, h3 {
-    color: #222;
+p {
+    color: #666;
+    margin: 0.5em 0;
 }
 
+.author {
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+/* For post pages */
+.post-content {
+    background-color: #fff;
+    padding: 2em;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 2em;
+    max-width: 800px;
+    text-align: left;
+}
