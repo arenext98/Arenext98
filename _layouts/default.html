@@ -82,14 +82,27 @@
                         <div class="trending-time">2 घंटे पहले</div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="sidebar-section">
-            <div class="sidebar-header">आज का मौसम</div>
-            <div class="sidebar-content weather-widget">
-                <div class="weather-icon">☀️</div>
-                <div class="weather-temp">25°C</div>
-                <div class="weather-desc">साफ और धूपदार</div>
+                <div class="trending-item">
+                    <div class="trending-number">3</div>
+                    <div class="trending-content">
+                        <h4>महंगाई पर लगाम लगाने के लिए RBI ने उठाए महत्वपूर्ण कदम</h4>
+                        <div class="trending-time">3 घंटे पहले</div>
+                    </div>
+                </div>
+                <div class="trending-item">
+                    <div class="trending-number">4</div>
+                    <div class="trending-content">
+                        <h4>क्रिकेट वर्ल्ड कप के लिए टीम इंडिया की घोषणा</h4>
+                        <div class="trending-time">5 घंटे पहले</div>
+                    </div>
+                </div>
+                <div class="trending-item">
+                    <div class="trending-number">5</div>
+                    <div class="trending-content">
+                        <h4>गगनयान मिशन के लिए इसरो ने की नई तैयारी</h4>
+                        <div class="trending-time">7 घंटे पहले</div>
+                    </div>
+                </div>
             </div>
         </div>
     </aside>
@@ -135,7 +148,6 @@
             document.getElementById('current-time').textContent = timeString;
         }
 
-        // Update date and time immediately and then every second
         updateDateTime();
         setInterval(updateDateTime, 1000);
     </script>
