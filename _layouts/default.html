@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <meta name="description" content="{{ site.description }}">
+    <meta name="keywords" content="{{ site.keywords }}">
+    <meta name="author" content="{{ site.author }}">
+
+    <meta property="og:title" content="{{ page.title }} | {{ site.title }}">
+    <meta property="og:description" content="{{ site.description }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+    <meta property="og:image" content="{{ '/assets/images/og-image.jpg' | absolute_url }}">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ page.title }} | {{ site.title }}">
+    <meta name="twitter:description" content="{{ site.description }}">
+
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+    <div class="top-header">
+        <div class="top-header-content">
+            <div class="breaking-news">
+                <span class="breaking-tag">🔥 BREAKING</span>
+                <span id="breaking-text">भारत में नई टेक्नोलॉजी पॉलिसी की घोषणा, जानें क्या होगा फायदा</span>
+            </div>
+            <div class="date-time">
+                <span id="current-date"></span> | <span id="current-time"></span>
+            </div>
+        </div>
+    </div>
+
+    <header class="main-header">
+        <div class="header-content">
+            <a href="{{ '/' | relative_url }}" class="logo">न्यूज़ टुडे</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="{{ '/' | relative_url }}">होम</a></li>
+                    <li><a href="#politics">राजनीति</a></li>
+                    <li><a href="#entertainment">मनोरंजन</a></li>
+                    <li><a href="#sports">खेल</a></li>
+                    <li><a href="#business">व्यापार</a></li>
+                    <li><a href="#tech">टेक्नोलॉजी</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="ad-space">
+        <h3>🎯 Advertisement Space (728x90)</h3>
+        <p>यहाँ Google AdSense या अन्य ad network का banner ad आएगा</p>
+        <small>जल्दी ही आपके ads यहाँ दिखेंगे!</small>
+    </div>
+
+    <div class="main-container">
+        {{ content }}
+    </div>
+
+    <div class="ad-space">
+        <h3>🎯 Advertisement Space (728x250)</h3>
+        <p>यहाँ content के बीच में ad आएगा - High CTR position!</p>
+    </div>
+
+    <aside class="sidebar">
+        <div class="sidebar-section">
+            <div class="sidebar-header">🔥 ट्रेंडिंग न्यूज़</div>
+            <div class="sidebar-content">
+                <div class="trending-item">
+                    <div class="trending-number">1</div>
+                    <div class="trending-content">
+                        <h4>दिल्ली में बढ़ता प्रदूषण, सरकार ने जारी किए नए दिशा-निर्देश</h4>
+                        <div class="trending-time">45 मिनट पहले</div>
+                    </div>
+                </div>
+                <div class="trending-item">
+                    <div class="trending-number">2</div>
+                    <div class="trending-content">
+                        <h4>iPhone 15 की कीमत में भारी गिरावट, जानें नई कीमत</h4>
+                        <div class="trending-time">2 घंटे पहले</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar-section">
+            <div class="sidebar-header">आज का मौसम</div>
+            <div class="sidebar-content weather-widget">
+                <div class="weather-icon">☀️</div>
+                <div class="weather-temp">25°C</div>
+                <div class="weather-desc">साफ और धूपदार</div>
+            </div>
+        </div>
+    </aside>
+
+    <script>
+        // Dummy script for date and time - Jekyll doesn't support real-time JS
+        document.getElementById('current-date').textContent = '{{ site.time | date: "%d %B, %Y" }}';
+        document.getElementById('current-time').textContent = '{{ site.time | date: "%I:%M %p" }}';
+    </script>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>हमारे बारे में</h3>
+                <p>न्यूज़ टुडे भारत का एक प्रमुख डिजिटल समाचार प्लेटफ़ॉर्म है। हम ताज़ी और सटीक ख़बरें आप तक पहुँचाने के लिए प्रतिबद्ध हैं।</p>
+            </div>
+            <div class="footer-section">
+                <h3>जल्दी पहुँचें</h3>
+                <a href="#">राजनीति</a>
+                <a href="#">मनोरंजन</a>
+                <a href="#">खेल</a>
+                <a href="#">व्यापार</a>
+            </div>
+            <div class="footer-section">
+                <h3>संपर्क</h3>
+                <p>ईमेल: contact@newstoday.in</p>
+                <p>फोन: +91-9876543210</p>
+            </div>
+            <div class="footer-section">
+                <h3>फॉलो करें</h3>
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 न्यूज़ टुडे. सभी अधिकार सुरक्षित हैं।</p>
+        </div>
+    </footer>
+</body>
+  </html>
+  
