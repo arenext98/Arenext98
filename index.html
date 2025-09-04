@@ -3,45 +3,14 @@ layout: default
 title: Home
 ---
 
-<main class="content-area">
-    {% assign hero_post = site.posts | sort: "date" | last %}
-    {% if hero_post %}
-    <section class="hero-section">
-        <div class="hero-image">
-            📺
+<div class="news-list">
+    {% for post in site.posts reversed %}
+    <div class="news-item">
+        <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+        <div class="news-meta">
+            <p>{{ post.date | date: "%d %B, %Y" }}</p>
         </div>
-        <div class="hero-overlay">
-            <div class="hero-title">
-                <a href="{{ hero_post.url | relative_url }}">{{ hero_post.title }}</a>
-            </div>
-            <div class="hero-meta">
-                <span class="news-category">ताज़ा खबर</span> • 
-                {{ hero_post.date | date: "%d %B, %Y" }}
-            </div>
-        </div>
-    </section>
-    {% endif %}
-
-    <div class="news-grid">
-        <div class="sidebar-header" style="background: #ff4757; color:white;">🔥 सभी ताज़ा ख़बरें</div>
-        {% for post in site.posts reversed %}
-        <article class="news-card news-card-large">
-            <div class="news-image">
-                📰
-            </div>
-            <div class="news-content">
-                <h2 class="news-title">
-                    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-                </h2>
-                <p class="news-summary">
-                    {{ post.excerpt | strip_html | truncatewords: 40 }}
-                </p>
-                <div class="news-meta">
-                    <span class="news-time">{{ post.date | date: "%d %B, %Y" }}</span>
-                    <span>By {{ post.author }}</span>
-                </div>
-            </div>
-        </article>
-        {% endfor %}
+        <p>{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
     </div>
-</main>
+    {% endfor %}
+</div>
