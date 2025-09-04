@@ -8,11 +8,7 @@ title: Home
     {% if hero_post %}
     <section class="hero-section">
         <div class="hero-image">
-            {% if hero_post.image %}
-            <img src="{{ hero_post.image | relative_url }}" alt="{{ hero_post.title }}">
-            {% else %}
             📺
-            {% endif %}
         </div>
         <div class="hero-overlay">
             <div class="hero-title">
@@ -26,75 +22,12 @@ title: Home
     </section>
     {% endif %}
 
-    <div class="ad-space">
-        <h3>🎯 Advertisement Space (728x250)</h3>
-        <p>यहाँ content के बीच में ad आएगा - High CTR position!</p>
-    </div>
-
     <div class="news-grid">
         <div class="sidebar-header" style="background: #ff4757; color:white;">🔥 सभी ताज़ा ख़बरें</div>
         {% for post in site.posts reversed %}
         <article class="news-card news-card-large">
             <div class="news-image">
-                {% if post.image %}
-                <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
-                {% else %}
                 📰
-                {% endif %}
-            </div>
-            <div class="news-content">
-                <h2 class="news-title">
-                    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-                </h2>
-                <p class="news-summary">
-                    {{ post.excerpt | strip_html | truncatewords: 40 }}
-                </p>
-                <div class="news-meta">
-                    <span class="news-time">{{ post.date | date: "%d %B, %Y" }}</span>
-                    <span>By {{ post.author }}</span>
-                </div>
-            </div>
-        </article>
-        {% endfor %}
-    </div>
-
-    <div class="news-grid" style="margin-top: 2rem;">
-        <div class="sidebar-header" style="background: #0a4f9a; color:white;">🏛️ राजनीति</div>
-        {% for post in site.posts reversed | where: 'categories', 'राजनीति' %}
-        <article class="news-card news-card-large">
-            <div class="news-image">
-                {% if post.image %}
-                <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
-                {% else %}
-                🏛️
-                {% endif %}
-            </div>
-            <div class="news-content">
-                <h2 class="news-title">
-                    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-                </h2>
-                <p class="news-summary">
-                    {{ post.excerpt | strip_html | truncatewords: 40 }}
-                </p>
-                <div class="news-meta">
-                    <span class="news-time">{{ post.date | date: "%d %B, %Y" }}</span>
-                    <span>By {{ post.author }}</span>
-                </div>
-            </div>
-        </article>
-        {% endfor %}
-    </div>
-
-    <div class="news-grid" style="margin-top: 2rem;">
-        <div class="sidebar-header" style="background: #1e3d59; color:white;">🏏 खेल</div>
-        {% for post in site.posts reversed | where: 'categories', 'खेल' %}
-        <article class="news-card news-card-large">
-            <div class="news-image">
-                {% if post.image %}
-                <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
-                {% else %}
-                🏏
-                {% endif %}
             </div>
             <div class="news-content">
                 <h2 class="news-title">
